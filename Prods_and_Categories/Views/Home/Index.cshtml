@@ -1,0 +1,38 @@
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" media="screen" href="~/css/styling.css"/>
+@model Product
+<div id =Wrapper>
+    <h1>Products | <a href="categories">Categories</a></h1>
+    <div class="box1">
+        <h2>New Product</h2>
+        <form asp-action="createP" asp-controller="Home" method="post">
+            <div class="form-group">
+                <span asp-validation-for="Name"></span>
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control">
+            </div>
+            <div class="form-group">
+                <span asp-validation-for="Description"></span>
+                <label asp-for="Description"></label>
+                <input asp-for="Description" class="form-control">
+            </div>
+            <div class="form-group">
+                <span asp-validation-for="Price"></span>
+                <label asp-for="Price"></label>
+                <input asp-for="Price" class="form-control">
+            </div>    
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+        </div>
+    </div><br>
+    <div id="box2">
+        <h2>Existing Products</h2>
+        @foreach (var x in @ViewBag.Prods)
+            {
+                <h2><a href="productAdd/@x.ProductId">@x.Name</a></h2>;
+
+            }
+
+    </div>
+        <!-- <a class="btn btn-primary" href="loginPage" role="button">Already Registered?</a> -->
+</div>

@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" media="screen" href="~/css/styling.css"/>
+@model Category
+<div id =Wrapper>
+    <h1><a href="/">Products</a> | Categories</h1>
+    <div class="box1">
+        <h2>New Product</h2>
+        <form asp-action="createC" asp-controller="Home" method="post">
+            <div class="form-group">
+                <span asp-validation-for="Name"></span>
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+        </div>
+    </div><br>
+    <div id="box2">
+        <h2>Existing Categories</h2>
+        @foreach(var x in @ViewBag.Cat)
+        {
+            <h2><a href="Category">@x.Name</a></h2>
+        }
+
+    </div>
+        <!-- <a class="btn btn-primary" href="loginPage" role="button">Already Registered?</a> -->
+</div>
